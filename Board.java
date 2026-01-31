@@ -7,12 +7,14 @@ public class Board {
     private final Random rnd = new Random();
 
     private int totalShips;
+    private int shipsRemaining;
 
     public Board(int size) {
         this.size = size;
         this.grid = new char[size][size];
         fillWater();
         this.totalShips = 0;
+        this.shipsRemaining = 0;
     }
 
     private void fillWater() {
@@ -27,6 +29,14 @@ public class Board {
 
     public int getTotalShips() {
         return totalShips;
+    }
+
+    public int getShipsRemaining() {
+        return shipsRemaining;
+    }
+
+    public boolean allShipsSunk() {
+        return shipsRemaining == 0;
     }
 
     public char getCell(int row, int col) {
@@ -45,10 +55,30 @@ public class Board {
             }
         }
         totalShips = ships;
+        shipsRemaining = ships;
     }
 
-    // Para mostrar el tablero (de momento sin ocultar nada)
-    public void print() {
+    // Devuelve:
+    // 'X' tocado, 'O' agua, 'R' repetido
+    public char shoot(int row, int col) {
+        char cell = grid[row][col];
+
+        if (cell == 'X' || cell == 'O') {
+            return 'R'; // ya disparado
+        }
+
+        if (cell == 'B') {
+            grid[row][col] = 'X';
+            shipsRemaining--;
+            return 'X';
+        } else {
+            grid[row][col] = 'O';
+            return 'O';
+        }
+    }
+
+    // Mostrar tablero. revealShips=false oculta barcos no tocados.
+    public void print(boolean revealShips) {
         System.out.print("   ");
         for (int c = 0; c < size; c++) System.out.print(c + " ");
         System.out.println();
@@ -56,7 +86,9 @@ public class Board {
         for (int r = 0; r < size; r++) {
             System.out.printf("%2d ", r);
             for (int c = 0; c < size; c++) {
-                System.out.print(grid[r][c] + " ");
+                char v = grid[r][c];
+                if (!revealShips && v == 'B') v = '~';
+                System.out.print(v + " ");
             }
             System.out.println();
         }
