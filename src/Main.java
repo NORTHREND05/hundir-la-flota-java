@@ -1,5 +1,10 @@
 public class Main {
+
     public static void main(String[] args) {
-        System.out.println("Hola Mundo desde rama isaias");
+
+        Game game = new Game();
+        ConsoleUI ui = new ConsoleUI();
+
+        ui.mostrarMensaje("Bienvenido a Hundir la Flota");
     }
 }
