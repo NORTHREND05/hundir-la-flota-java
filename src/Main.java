@@ -11,28 +11,28 @@ public class Main {
         Game game = new Game(size, ships, attempts);
         ConsoleUI ui = new ConsoleUI();
 
-        ui.mostrarMensaje("Bienvenido a Hundir la Flota");
+        ui.mostrarMensaje("Bienvenido a nuestro juego Hundir la Flota");
 
         while (!game.isGameOver()) {
 
-            ui.mostrarMensaje("\nIntentos restantes: " + game.getAttempts());
             ui.mostrarMensaje("Barcos restantes: " + game.getShipsRemaining());
+            ui.mostrarMensaje("\nIntentos restantes: " + game.getAttempts());
 
             // El tablero lo imprime la lógica (Game/Board)
             game.printBoard(false);
 
-            int fila = ui.pedirFila();
             int columna = ui.pedirColumna();
+            int fila = ui.pedirFila();
 
             try {
                 char resultado = game.shoot(fila, columna);
 
                 switch (resultado) {
                     case 'X':
-                        ui.mostrarMensaje("¡Tocado!");
+                        ui.mostrarMensaje("¡Tocadooooo!");
                         break;
                     case 'O':
-                        ui.mostrarMensaje("Agua...");
+                        ui.mostrarMensaje("Aguaaaaa...");
                         break;
                     case 'R':
                         ui.mostrarMensaje("Disparo repetido, no pierdes intento.");
