@@ -1,51 +1,32 @@
-🚢 Hundir la Flota – Proyecto colaborativo en Java
+Hundir la Flota – Java
+Proyecto desarrollado en Java como práctica de control de versiones con Git y trabajo colaborativo en GitHub.
 
-Proyecto evaluable de programación colaborativa utilizando Git, GitHub y Java.
+📌 Descripción
+Implementación del juego Hundir la Flota en consola.
+El proyecto se ha desarrollado siguiendo un flujo de trabajo por ramas, con integración progresiva y resolución de conflictos, separando claramente la lógica del juego de la interacción con el usuario.
 
-Este repositorio corresponde al desarrollo del juego Hundir la Flota como aplicación de consola, poniendo especial énfasis en el uso correcto de:
+🧩 Estructura del proyecto
+Board.java → Gestión del tablero y colocación aleatoria de barcos
 
-Repositorios remotos (GitHub)
+Game.java → Lógica del juego (disparos, intentos, victoria y derrota)
 
-Ramas de trabajo
+ConsoleUI.java → Interfaz por consola (mensajes y entrada de datos)
 
-Commits claros y frecuentes
+Main.java → Control del flujo principal del juego
 
-Resolución de conflictos
+👥 Trabajo en equipo
+El desarrollo se ha repartido de la siguiente forma:
 
-Trabajo en equipo real
+Alumno A: implementación de la lógica del juego (Game, Board)
 
-🎯 Objetivo del proyecto
+Alumno B: interacción por consola y control del flujo (Main, ConsoleUI)
 
-Desarrollar el juego Hundir la Flota en Java aplicando buenas prácticas de control de versiones y colaboración con GitHub.
+Se ha trabajado con ramas independientes, realizando merges progresivos y resolviendo un conflicto real en Main.java.
 
-🛠️ Tecnologías utilizadas
+▶️ Ejecución
+Ejecutar la clase Main.java desde el entorno de desarrollo para iniciar el juego por consola.
 
-Java (proyecto de consola)
+✍️ Autores
+Isaías Gregori Crespo
 
-Visual Studio
-
-Git
-
-GitHub
-
-👥 Equipo de trabajo
-
-Proyecto desarrollado en equipo de dos personas siguiendo el flujo de trabajo exigido por el ejercicio.
-
-La organización del trabajo, las ramas y los commits se irán reflejando progresivamente en el historial del repositorio.
-
-📌 Estado del proyecto
-
-🟡 Proyecto en fase inicial de desarrollo.
-
-Actualmente:
-
-Repositorio creado
-
-README inicial añadido
-
-Preparando estructura base del proyecto Java
-
-📂 Estructura del proyecto
-
-La estructura del código se irá definiendo conforme avance el desarrollo.
+Joel David Campo Piedrahita
