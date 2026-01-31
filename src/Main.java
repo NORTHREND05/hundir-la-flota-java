@@ -1,8 +1,6 @@
 public class Main {
     public static void main(String[] args) {
 
-
-
         // Parámetros del juego (pueden ajustarse)
         int size = 5;
         int ships = 5;
@@ -13,26 +11,24 @@ public class Main {
 
         ui.mostrarMensaje("Bienvenido a nuestro juego Hundir la Flota");
 
-        while (!game.isGameOver()) {
-
-            ui.mostrarMensaje("Barcos restantes: " + game.getShipsRemaining());
+        do {
             ui.mostrarMensaje("\nIntentos restantes: " + game.getAttempts());
+            ui.mostrarMensaje("Barcos restantes: " + game.getShipsRemaining());
 
-            // El tablero lo imprime la lógica (Game/Board)
             game.printBoard(false);
 
-            int columna = ui.pedirColumna();
             int fila = ui.pedirFila();
+            int columna = ui.pedirColumna();
 
             try {
                 char resultado = game.shoot(fila, columna);
 
                 switch (resultado) {
                     case 'X':
-                        ui.mostrarMensaje("¡Tocadooooo!");
+                        ui.mostrarMensaje("¡Tocado!");
                         break;
                     case 'O':
-                        ui.mostrarMensaje("Aguaaaaa...");
+                        ui.mostrarMensaje("Agua...");
                         break;
                     case 'R':
                         ui.mostrarMensaje("Disparo repetido, no pierdes intento.");
@@ -42,7 +38,8 @@ public class Main {
             } catch (IllegalArgumentException e) {
                 ui.mostrarMensaje("Coordenadas fuera de rango. Inténtalo de nuevo.");
             }
-        }
+
+        } while (!game.isGameOver());
 
         // Fin del juego
         if (game.hasWon()) {
@@ -53,5 +50,6 @@ public class Main {
 
         ui.mostrarMensaje("\nTablero final:");
         game.printBoard(true);
+
     }
 }
